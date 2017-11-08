@@ -17,8 +17,11 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-store.dispatch(addComment('first comment'));
-store.dispatch(addComment('second comment'));
+store.dispatch(addComment('1 comment bla bla bla'));
+store.dispatch(addComment('2 comment bla bla bla'));
+store.dispatch(addComment('3 comment bla bla bla'));
+store.dispatch(addComment('4 comment bla bla bla'));
+store.dispatch(addComment('5 comment bla bla bla'));
 
 registerServiceWorker();
 
