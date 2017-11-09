@@ -9,6 +9,7 @@ import reducer from './reducers/reducer.js';
 import { addComment } from './actions/actions.js';
 
 const store = createStore(reducer);
+const testComment = 'test comment';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,12 +17,13 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-
-store.dispatch(addComment('1 comment bla bla bla'));
-store.dispatch(addComment('2 comment bla bla bla'));
-store.dispatch(addComment('3 comment bla bla bla'));
-store.dispatch(addComment('4 comment bla bla bla'));
-store.dispatch(addComment('5 comment bla bla bla'));
+store.dispatch(addComment('1 comment '));
+store.dispatch(addComment('2 comment '));
+store.dispatch(addComment('3 comment '));
+store.dispatch(addComment('4 comment '));
+store.dispatch(addComment('5 comment '));
+store.dispatch(addComment(testComment));
+store.dispatch(addComment());
 
 registerServiceWorker();
 
