@@ -9,9 +9,21 @@ class CommentAdd extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
   handleChange(event) {
     this.setState({value: event.target.value});
+    
+    localStorage.setItem('cachedComment',this.state.value);
+    console.log(localStorage.getItem('cachedComment')); 
+    
+    //const cacheExist = localStorage.getItem('cachedComment');
+    //console.log(cacheExist); 
+    //if (cacheExist) {
+    // this.state.value.setState(cacheExist);
+    //return;
+    //}      
   }
+  
   handleSubmit(event) {
     this.props.addComment(this.state.value); 
     //this.props.dispatch(addComment(this.state.value)) ??
@@ -19,6 +31,7 @@ class CommentAdd extends React.Component {
     //alert('Your comment: ' + this.state.value) ok !!!
     event.preventDefault();
   }
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
