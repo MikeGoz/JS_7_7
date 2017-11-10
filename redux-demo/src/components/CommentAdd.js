@@ -4,7 +4,7 @@ class CommentAdd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Please add your comment...'
+      value: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,8 +22,8 @@ class CommentAdd extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <textarea value={this.state.value} onChange={this.handleChange} />
-        <input type="submit" value="Add comment" />
+        <textarea value={this.state.value} onChange={this.handleChange} placeholder={"Please add your comment here..."} />
+        <input type="submit" value="Add comment"/>
       </form>
     );
   }
