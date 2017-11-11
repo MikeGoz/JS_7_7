@@ -3,8 +3,9 @@ import React from 'react';
 class CommentAdd extends React.Component {
   constructor(props) {
     super(props);
+    const cachedComment = localStorage.getItem('cachedComment');
     this.state = {
-      value: ''
+      value: cachedComment || '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,23 +13,13 @@ class CommentAdd extends React.Component {
   
   handleChange(event) {
     this.setState({value: event.target.value});
-    
-    localStorage.setItem('cachedComment',this.state.value);
-    console.log(localStorage.getItem('cachedComment')); 
-    
-    //const cacheExist = localStorage.getItem('cachedComment');
-    //console.log(cacheExist); 
-    //if (cacheExist) {
-    // this.state.value.setState(cacheExist);
-    //return;
-    //}      
+    localStorage.setItem('cachedComment', this.state.value);  
   }
   
   handleSubmit(event) {
-    this.props.addComment(this.state.value); 
-    //this.props.dispatch(addComment(this.state.value)) ??
-    //this.props.dispatch(this.state.value); ?
-    //alert('Your comment: ' + this.state.value) ok !!!
+    this.props.addComment(this.state.value);
+    this.setState({ value: '' })
+    localStorage.setItem('cachedComment', '');
     event.preventDefault();
   }
   
